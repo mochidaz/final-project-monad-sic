@@ -84,8 +84,8 @@ if __name__ == '__main__':
                 try: 
                     tstamp = cur.fetchone()
                     dif = t - tstamp[0]
-                    #if (dif.total_seconds() // 3600) > 2:
-                    mailer()
+                    if (dif.total_seconds() // 3600) > 2:
+                     mailer()
                     cur.execute("INSERT INTO data VALUES(%s, %s)", (t, dist))
                 except Exception as e:
                     print("Error:" + str(e))
